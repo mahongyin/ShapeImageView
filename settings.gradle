@@ -1,0 +1,22 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        maven { url 'https://maven.aliyun.com/repository/public' }
+        mavenCentral()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        maven{
+            allowInsecureProtocol = true
+            url "http://tencent.a1000.top:8082/artifactory/local"}
+        maven { url "https://www.jitpack.io" }
+    }
+}
+rootProject.name = "ShapeImageView"
+include ':app'
+include ':shape_imageview'

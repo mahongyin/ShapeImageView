@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="initial_slider_values">
+        <item>20</item>
+        <item>70</item>
+    </array>
+
+    <integer-array name="cat_custom_progress_colors">
+        <item>@color/purple_200</item>
+        <item>@color/teal_700</item>
+        <item>@color/purple_500</item>
+    </integer-array>
+
+</resources>

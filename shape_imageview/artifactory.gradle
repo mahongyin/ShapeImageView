@@ -1,0 +1,24 @@
+//Gradle 6.0以下 maven 插件
+apply plugin: 'com.jfrog.artifactory'
+
+def MAVEN_LOCAL_PATH ='http://tencent.a1000.top:8082/artifactory/local'
+def ARTIFACT_ID = "shape_imageview"//project.getName()
+def VERSION_NAME = '1.0.0'
+def GROUP_ID = 'com.mhy'
+//artifactory私库直接执行这里
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url:MAVEN_LOCAL_PATH ){
+                authentication(userName: "${MAVEN_USER}", password:"${MAVEN_PASSWORD}")
+            }
+            pom.project {
+                groupId GROUP_ID
+                artifactId ARTIFACT_ID
+                version VERSION_NAME
+                packaging 'aar'
+            }
+        }
+    }
+}
+//gradlew clean assembleRelease artifactoryPublish --stacktrace --info

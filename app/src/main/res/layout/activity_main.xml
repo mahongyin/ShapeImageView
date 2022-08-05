@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+        <!--app:backgroundTint	背景着色
+        app:backgroundTintMode	着色模式
+        app:strokeColor	描边颜色
+        app:strokeWidth	描边宽度
+        app:cornerRadius	圆角大小
+        app:rippleColor	按压水波纹颜色
+        app:icon	图标icon
+        app:iconSize	图标大小
+        app:iconGravity	图标重心
+        app:iconTint	图标着色
+        app:iconTintMode	图标着色模式
+        app:iconPadding	图标和文本之间的间距-->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="需要Material主题"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            app:backgroundTint="#666666"
+            app:cornerRadius="10dp"
+            app:icon="@mipmap/ic_launcher"
+            app:iconGravity="start"
+            app:iconPadding="3dp"
+            app:iconSize="33dp"
+            app:iconTint="@color/black"
+            app:iconTintMode="screen"
+            app:rippleColor="@color/design_default_color_on_primary"
+            app:strokeColor="@color/black"
+            app:strokeWidth="3dp" />
+
+        <com.google.android.material.slider.RangeSlider
+            android:id="@+id/range_slider"
+            style="@style/Widget.MaterialComponents.Slider"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:valueFrom="0"
+            android:valueTo="100"
+            app:values="@array/initial_slider_values" />
+        <!--android:valueFrom	进度起点
+        android:valueTo	进度终点
+        android:value	当前进度点
+        android:stepSize	步长（必须大于0）
+        app:values	配置多个slider节点
+        app:labelBehavior	slider 滑动时顶部是否显示变化效果
+        floating表示会随着数值一起显示
+        gone是不显示
+        with bound是表示数值框也会随着占用一定的dp
+        app:labelStyle	配置slider节点顶部view style
+        app:tickVisible="false" 并去掉步长间隔
+        拖动时出现的大圆提示
+        app:haloColor="@color/mainColor"
+        app:haloRadius="20dp"//如果不想要，就设置为0dp
+        app:thumbRadius="10dp"//圆的半径
+        app:thumbElevation="10dp"//悬浮阴影
+        其他属性还有thumbColor等
+        app:trackColorActive="@color/mainColor"//以拖动的区域
+        app:trackColorInactive="@color/ff666666"//未覆盖的区域
+        设置滑动条颜色
+        app:trackColorActive="@color/colorBoderBlue"
+        app:trackColorInactive="@color/colorPrimary"
+        设置滑块
+			app:thumbColor="@color/colorPink"
+			app:thumbRadius = "10dp"
+            app:thumbColor="@color/colorPink"
+            app:thumbRadius = "10dp"
+            app:haloColor = "@color/colorLightGreen"
+            app:thumbStrokeColor = "@color/colorPurple"
+            app:thumbStrokeWidth = "10dp"-->
+        <com.google.android.material.slider.Slider
+            android:id="@+id/slider"
+            style="@style/Widget.Material3.Slider"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:stepSize="10"
+            android:value="30"
+            android:valueFrom="0"
+            android:valueTo="100"
+            app:haloColor="@color/purple_200"
+            app:haloRadius="20dp"
+            app:labelBehavior="withinBounds"
+            app:thumbColor="#ff666666"
+            app:thumbElevation="10dp"
+            app:thumbRadius="10dp"
+            app:tickVisible="true"
+            app:trackColorActive="@color/purple_700"
+            app:trackColorInactive="#ff666666" />
+
+        <com.mhy.shape_imageview.ShapeImageView
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:src="#ff00ff" />
+
+        <com.mhy.shape_imageview.ShapeImageView
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:src="#ff00ff"
+            app:shape_corner_All="50%" />
+
+        <com.mhy.shape_imageview.ShapeImageView
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:padding="2dp"
+            android:src="#ff00ff"
+            app:shape_TopLeft="rounded"
+            app:shape_corner_TopLeft="50%"
+            app:strokeColor="@android:color/holo_blue_light"
+            app:strokeWidth="4dp" />
+
+        <com.mhy.shape_imageview.ShapeImageView
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:padding="2dp"
+            android:src="#ff00ff"
+            app:shape_TopLeft="cut"
+            app:shape_corner_TopLeft="50%"
+            app:strokeColor="@android:color/holo_blue_light"
+            app:strokeWidth="4dp" />
+
+        <com.mhy.shape_imageview.ShapeImageView
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:padding="2dp"
+            android:src="#ff00ff"
+            app:shape_BottomRight="rounded"
+            app:shape_TopLeft="cut"
+            app:shape_corner_BottomRight="50%"
+            app:shape_corner_TopLeft="100%"
+            app:strokeColor="@android:color/holo_blue_light"
+            app:strokeWidth="4dp" />
+
+        <com.mhy.shape_imageview.ShapeImageView
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:padding="2dp"
+            android:src="#ff00ff"
+            app:shape_BottomRight="cut"
+            app:shape_TopLeft="cut"
+            app:shape_corner_BottomRight="50%"
+            app:shape_corner_TopLeft="50%"
+            app:strokeColor="@android:color/holo_blue_light"
+            app:strokeWidth="4dp" />
+
+        <com.mhy.shape_imageview.ShapeImageView
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:padding="2dp"
+            android:src="#ff00ff"
+            app:shape_All="rounded"
+            app:shape_corner_All="16dp"
+            app:shape_corner_BottomRight="0dp"
+            app:shape_corner_TopRight="16dp"
+            app:strokeColor="@android:color/holo_blue_light"
+            app:strokeWidth="4dp" />
+
+        <com.mhy.shape_imageview.ShapeImageView
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:src="#ff00ff"
+            app:shape_All="rounded"
+            app:shape_corner_BottomLeft="25dp"
+            app:shape_corner_BottomRight="25dp"
+            app:shape_corner_TopLeft="70%"
+            app:shape_corner_TopRight="70%" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:padding="2dp"
+            android:src="@mipmap/ic_launcher"
+            app:shapeAppearance="@style/circleImageStyle"
+            app:strokeColor="@color/black"
+            app:strokeWidth="4dp" />
+
+        <!--app:indicatorDirectionLinear	线性指示器前进的方向模式
+        app:indicatorDirectionCircular	圆形指示器前进的方向模式
+        app:indicatorCornerRadius	指示器和轨道的每个角的圆角半径
+        app:indicatorSize	进度跟踪和指标的宽度
+        app:circularRadius	定义圆形进度指示器的半径
+        app:circularInset	从指示器的外部边缘到指示器边缘的额外空间，相当于margin
+        app:trackColor	进度轨道使用的颜色，进度未完成的颜色
+        app:indicatorColor	指示器颜色，可设置单一颜色或者颜色数组。-->
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            app:indicatorColor="@array/cat_custom_progress_colors" />
+
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:indeterminate="true"
+            app:indicatorColor="@array/cat_custom_progress_colors" />
+
+        <!--方法相似 多加了一个starticon和endicon
+        endIconmode这里 custom是自己定制，还有一个是password_toggle。
+        用来隐藏密码，此时edittext类型应该是password
+        还有clear_text，点击可以清除文本内容
+        以下属性均要放在layout里而不是edittext里
+                app:startIconDrawable ="@mipmap/three"
+                app:counterEnabled="true"计数器
+                app:counterMaxLength="5"计数最大值
+                app:prefixText="prefix"前缀
+                app:suffixText="suffix"后缀
+                app:helperTextEnabled="true"帮助文本
+                app:helperText="@string/helper_text"帮助文本内容
+                app:errorEnabled="true"错误提醒
+                app:endIconMode="clear_text"右侧icon类型
+                app:boxBackgroundColor="@color/colorLittlePink"文本框背景-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_marginHorizontal="16dp"
+            android:layout_height="wrap_content"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="@color/purple_200"
+            app:counterEnabled="true"
+            app:counterMaxLength="4"
+            app:counterOverflowTextAppearance="@style/MyOverflowText"
+            app:errorEnabled="true"
+            app:errorTextAppearance="@style/MyErrorText">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/text_input_edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:theme="@style/MyEditText" />
+        </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
+</ScrollView>
