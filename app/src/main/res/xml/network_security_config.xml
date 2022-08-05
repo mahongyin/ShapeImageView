@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <base-config cleartextTrafficPermitted="true" />
+    <domain-config cleartextTrafficPermitted="true">
+         <domain includeSubdomains="false">127.0.0.1</domain><!--for *HttpServer -->
+    </domain-config>
+</network-security-config>
+<!--方法1.targetSdkVersion 降回到 27-->
+<!--方法2.本文件-然后在 AndroidManifest.xml application 标签内应用上面的xml配置：
+        android:networkSecurityConfig="@xml/network_security_config"
+-->
