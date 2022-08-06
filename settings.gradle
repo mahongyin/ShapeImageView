@@ -15,6 +15,7 @@ dependencyResolutionManagement {
             allowInsecureProtocol = true
             url "http://tencent.a1000.top:8082/artifactory/local"}
         maven { url "https://www.jitpack.io" }
+        mavenLocal()
     }
 }
 rootProject.name = "ShapeImageView"
