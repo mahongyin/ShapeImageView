@@ -18,8 +18,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
     }
     kotlinOptions {
         jvmTarget = '1.8'
@@ -47,7 +47,7 @@ afterEvaluate {
             publications {
                 release(MavenPublication) {
                     groupId = 'com.mhy'
-                    artifactId = 'shape_imageview'
+                    artifactId = 'ShapeImageView'
                     version = '1.0.0'
                     // 必须有这个 否则不会上传AAR包
                     afterEvaluate { artifact(tasks.getByName("bundleReleaseAar")) }
@@ -93,7 +93,7 @@ afterEvaluate {
                 release(MavenPublication) {
                     from components.release
                     groupId = 'com.gitee.mahongyin'
-                    artifactId = 'shape_imageview'
+                    artifactId = 'ShapeImageView'
                     version = '1.0.0'
                 }
             }

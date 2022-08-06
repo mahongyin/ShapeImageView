@@ -37,7 +37,5 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.4.2'
 
     implementation 'com.google.android.material:material:1.6.1'
-    implementation project(path: ':shape_imageview')
-//    implementation 'com.mhy:shape_imageview:1.0.0'
-//    implementation 'com.mhy:glide:4.11.0'
+    implementation 'com.gitee.mahongyin:ShapeImageView:1.0.0'
 }

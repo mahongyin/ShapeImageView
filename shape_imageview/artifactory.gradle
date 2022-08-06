@@ -2,7 +2,7 @@
 apply plugin: 'com.jfrog.artifactory'
 
 def MAVEN_LOCAL_PATH ='http://tencent.a1000.top:8082/artifactory/local'
-def ARTIFACT_ID = "shape_imageview"//project.getName()
+def ARTIFACT_ID = "ShapeImageView"//project.getName()
 def VERSION_NAME = '1.0.0'
 def GROUP_ID = 'com.mhy'
 //artifactory私库直接执行这里

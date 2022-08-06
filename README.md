@@ -14,7 +14,7 @@ maven { url "https://www.jitpack.io" }
 
 ```
 implementation 'com.google.android.material:material:1.6.1'
-implementation 'com.gitee.mahongyin:shape_imageview:1.0.0'
+implementation 'com.gitee.mahongyin:ShapeImageView:1.0.0'
 ```
 
 #### 属性  
