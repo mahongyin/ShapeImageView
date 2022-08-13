@@ -21,11 +21,13 @@
             <enum name="rounded" value="0" />
             <enum name="cut" value="1" />
         </attr>
+        <!--设置角-->
         <attr name="shape_corner_TopLeft" format="dimension|fraction" />
         <attr name="shape_corner_TopRight" format="dimension|fraction" />
         <attr name="shape_corner_BottomLeft" format="dimension|fraction" />
         <attr name="shape_corner_BottomRight" format="dimension|fraction" />
         <attr name="shape_corner_All" format="dimension|fraction" />
+
     </declare-styleable>
 
 </resources>

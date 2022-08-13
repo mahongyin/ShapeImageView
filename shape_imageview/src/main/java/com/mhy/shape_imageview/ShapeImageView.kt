@@ -2,18 +2,34 @@ package com.mhy.shape_imageview
 
 import android.content.Context
 import android.content.res.TypedArray
+import android.graphics.Color
+import android.graphics.Color.red
+import android.graphics.Paint
+import android.graphics.drawable.Drawable
+import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 import android.util.AttributeSet
+import android.util.Half.toFloat
 import android.util.TypedValue
+import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import com.google.android.material.imageview.ShapeableImageView
 import com.google.android.material.shape.*
 
 /**
  * Created By Mahongyin
  * Date    2022/8/5 11:50
+ * 给shapeAppearance设置的 style，并不是ShapeableImageView自己来处理的，
+ * 而是由ShapeAppearanceModel来构建的，然后又交给MaterialShapeDrawable来绘制的。
+ * 有各种边和角的属性
+ * MaterialShapeUtils.createDefaultCornerTreatment() 创建默认角的处理方式
+ * MaterialShapeUtils.createDefaultEdgeTreatment() 创建默认边的处理方式
+ * 边和角，是可以自定义的
+ *
  * 指定strokeWidth描边的时候，其描边会被覆盖掉一半，如strokeWidth=4dp，上下左右会被覆盖，实际的效果是只有2dp被显示(画笔一半)
  * 描边问题处理方法:
  *         app:strokeWidth="4dp"
  *         android:padding="2dp"
+ * 除了可以设置描边之外，还可以设置背景、阴影等其他属性
  */
 /*代码设置
 imageView?.shapeAppearanceModel = ShapeAppearanceModel.builder()
@@ -56,8 +72,9 @@ class ShapeImageView @JvmOverloads constructor(context: Context, attrs: Attribut
                 getCornerSize(a, R.styleable.ShapeImageView_shape_corner_BottomRight, cornerSize)
             val cornerSizeBottomLeft =
                 getCornerSize(a, R.styleable.ShapeImageView_shape_corner_BottomLeft, cornerSize)
-            shapeAppearanceModel =
-                ShapeAppearanceModel.builder().setTopLeftCorner(shapeTypeTopLeft, cornerSizeTopLeft)
+
+            shapeAppearanceModel = ShapeAppearanceModel.builder()
+                    .setTopLeftCorner(shapeTypeTopLeft, cornerSizeTopLeft)
                     .setTopRightCorner(shapeTypeTopRight, cornerSizeTopRight)
                     .setBottomRightCorner(shapeTypeBottomRight, cornerSizeBottomRight)
                     .setBottomLeftCorner(shapeTypeBottomLeft, cornerSizeBottomLeft).build()
@@ -79,4 +96,5 @@ class ShapeImageView @JvmOverloads constructor(context: Context, attrs: Attribut
             defaultValue
         }
     }
+
 }
