@@ -5,36 +5,124 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:clipChildren="false"
-    android:scrollbars="none"
-    android:overScrollMode="never"
     android:clipToPadding="false"
+    android:fitsSystemWindows="false"
+    android:overScrollMode="never"
+    android:scrollbars="none"
     tools:context=".MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center_horizontal"
         android:background="@drawable/gc"
+        android:gravity="center_horizontal"
         android:orientation="vertical">
-        <!--app:backgroundTint	背景着色
-        app:backgroundTintMode	着色模式
-        app:strokeColor	描边颜色
-        app:strokeWidth	描边宽度
-        app:cornerRadius	圆角大小
-        app:rippleColor	按压水波纹颜色
-        app:icon	图标icon
-        app:iconSize	图标大小
-        app:iconGravity	图标重心
-        app:iconTint	图标着色
-        app:iconTintMode	图标着色模式
-        app:iconPadding	图标和文本之间的间距-->
+
+        <com.mhy.shape_textview.DrawableTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:drawableRight="@mipmap/ic_launcher"
+            android:drawableLeft="@mipmap/ic_launcher"
+            android:drawablePadding="4dp"
+            android:gravity="center"
+            android:text="图片文字图片片文字图片文字图片文字图片文字图片文字图片文字图片文字图片文字图片文字图片文字"
+            android:textColor="#00ffff"
+            android:textSize="18sp"
+            app:text_drawable_height="15dp"
+            app:text_drawable_width="15dp" />
+
+        <com.mhy.shape_textview.gradient_span.TextGradientView
+            android:id="@+id/text"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:gravity="center"
+            android:text="渐变文字Span"
+            android:textStyle="normal"
+            app:textGradient_endColor="@color/white"
+            app:textGradient_startColor="@color/black" />
+
+        <com.mhy.shape_textview.gradient_animat.TextAnimatGradientView
+            android:id="@+id/tv_gradient"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:text="渐变文字Animat"
+            android:textSize="18sp"
+            app:animatorGradient_endColor="#55eeaa"
+            app:animatorGradient_duration="4000"
+            app:animatorGradient_centerColor="#ee0000"
+            app:animatorGradient_direction="left_to_right"
+            app:animatorGradient_startColor="#55eeaa" />
+
+        <com.mhy.shape_textview.TextGradientView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:text="渐变文字"
+            android:textSize="18sp"
+            app:textGradient_endColor="#55eeaa"
+            app:textGradient_orientation="horizontal"
+            app:textGradient_startColor="#ee0000" />
+
+        <com.google.android.material.MaterialShapeTextView
+            android:layout_width="85dp"
+            android:layout_height="34dp"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:padding="1dp"
+            android:shadowColor="@color/black"
+            android:text="圆角图片"
+            android:textColor="#00ffff"
+            android:textSize="12sp"
+            app:shapeText_corner_BottomLeft="9dp"
+            app:shapeText_corner_BottomRight="6dp"
+            app:shapeText_corner_TopLeft="9dp"
+            app:shapeText_corner_TopRight="6dp"
+            app:shapeText_edge_RightTriangle="-8dp"
+            app:strokeColor="#66dd33"
+            app:strokeWidth="2dp" />
+
+        <com.google.android.material.MaterialShapeImageView
+            android:id="@+id/photo"
+            android:layout_width="160dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:elevation="5dp"
+            android:padding="1dp"
+            android:scaleType="centerCrop"
+            android:src="@color/purple_200"
+            app:shapeImg_corner_BottomRight="6dp"
+            app:shapeImg_corner_TopRight="6dp"
+            app:shapeImg_edge_LeftTriangle="6dp"
+            app:strokeColor="@color/white"
+            app:strokeWidth="2dp"
+            tools:background="#909abd" />
+
         <FrameLayout
             android:id="@+id/fl_btn"
             android:layout_width="300dp"
             android:layout_height="200dp"
             android:clipChildren="false"
             android:clipToPadding="false">
-
+            <!--app:backgroundTint	背景着色
+               app:backgroundTintMode	着色模式
+               app:strokeColor	描边颜色
+               app:strokeWidth	描边宽度
+               app:cornerRadius	圆角大小
+               app:rippleColor	按压水波纹颜色
+               app:icon	图标icon
+               app:iconSize	图标大小
+               app:iconGravity	图标重心
+               app:iconTint	图标着色
+               app:iconTintMode	图标着色模式
+               app:iconPadding	图标和文本之间的间距-->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn1"
                 android:layout_width="wrap_content"
@@ -64,9 +152,9 @@
                 android:layout_width="90dp"
                 android:layout_height="90dp"
                 android:layout_gravity="center"
+                app:cardBackgroundColor="@color/purple_200"
                 app:cardCornerRadius="4dp"
                 app:cardElevation="3dp"
-                app:cardBackgroundColor="@color/purple_200"
                 app:cardForegroundColor="@color/cardview_shadow_start_color"
                 app:strokeColor="#0000dd"
                 app:strokeWidth="1dp" />
@@ -131,25 +219,25 @@
 
         <FrameLayout
             android:id="@+id/fl_tv"
-            android:clipToPadding="false"
-            android:clipChildren="false"
             android:layout_width="match_parent"
+            android:layout_height="100dp"
             android:layout_margin="10dp"
-            android:layout_height="100dp">
+            android:clipChildren="false"
+            android:clipToPadding="false">
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tv_badge"
-                android:gravity="center"
                 android:layout_width="100dp"
                 android:layout_height="80dp"
+                android:layout_gravity="center"
                 android:elevation="4dp"
+                android:gravity="center"
                 android:shadowColor="@color/black"
-                android:shadowRadius="1"
                 android:shadowDx="0"
                 android:shadowDy="0"
-                android:translationZ="4dp"
-                android:layout_gravity="center"
-                android:text="@string/app_name" />
+                android:shadowRadius="1"
+                android:text="@string/app_name"
+                android:translationZ="4dp" />
         </FrameLayout>
 
         <com.google.android.material.tabs.TabLayout
@@ -189,16 +277,16 @@
             android:id="@+id/my_imag"
             android:layout_width="90dp"
             android:layout_height="90dp"
-            app:shape_corner_All="9dp"
-            android:src="#ff00ff" />
+            android:src="#ff00ff"
+            app:shape_corner_All="9dp" />
 
         <com.mhy.shape_imageview.ShapeImageView
             android:layout_width="90dp"
             android:layout_height="90dp"
             android:layout_marginTop="15dp"
             android:elevation="4dp"
-            android:translationZ="4dp"
             android:src="#ff00ff"
+            android:translationZ="4dp"
             app:shape_corner_All="50%" />
 
         <com.mhy.shape_imageview.ShapeImageView
@@ -279,8 +367,8 @@
                 android:layout_width="90dp"
                 android:layout_height="90dp"
                 android:layout_gravity="center_horizontal"
-                android:padding="2dp"
                 android:layout_marginTop="10dp"
+                android:padding="2dp"
                 android:src="@mipmap/ic_launcher"
                 app:shapeAppearance="@style/diamondImageStyle"
                 app:strokeColor="@color/black"
@@ -341,5 +429,147 @@
                 android:inputType="textPassword"
                 android:theme="@style/MyEditText" />
         </com.google.android.material.textfield.TextInputLayout>
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:background="@color/purple_200"
+            android:clipChildren="false"
+            android:columnCount="3"
+            android:orientation="horizontal"
+            tools:context="com.demo.app.MainActivity">
+
+            <me.reezy.cosmo.shapeable.ShapeableFrameLayout
+                android:layout_width="80dp"
+                android:layout_height="40dp"
+                android:layout_margin="10dp"
+                android:clickable="true"
+                android:gravity="center"
+                app:cornerSize="5dp"
+                app:cornerType="rounded"
+                app:gradientCenterX="0.5"
+                app:gradientCenterY="1"
+                app:gradientEndColor="@color/teal_200"
+                app:gradientRadius="40dp"
+                app:gradientStartColor="@color/teal_700"
+                app:gradientType="sweep"
+                app:shadowColor="#40ff0000"
+                app:shadowRadius="10dp"
+                app:strokeColor="@color/purple_700"
+                app:strokeWidth="2dp" />
+
+            <me.reezy.cosmo.shapeable.ShapeableFrameLayout
+                android:layout_width="80dp"
+                android:layout_height="40dp"
+                android:layout_margin="10dp"
+                android:clickable="true"
+                android:gravity="center"
+                app:cornerPosition="top"
+                app:cornerSize="15dp"
+                app:cornerType="concave"
+                app:gradientCenterY="1"
+                app:gradientEndColor="@color/teal_200"
+                app:gradientRadius="40dp"
+                app:gradientStartColor="@color/teal_700"
+                app:gradientType="radial"
+                app:shadowColor="#40ff0000"
+                app:shadowRadius="10dp"
+                app:strokeColor="@color/teal_700"
+                app:strokeWidth="0dp" />
+
+            <me.reezy.cosmo.shapeable.ShapeableFrameLayout
+                android:layout_width="80dp"
+                android:layout_height="32dp"
+                android:layout_margin="10dp"
+                android:clickable="true"
+                android:gravity="center"
+                app:cornerSize="5dp"
+                app:cornerType="concave"
+                app:gradientEndColor="@color/teal_200"
+                app:gradientStartColor="@color/teal_700"
+                app:shadowColor="#40ff0000"
+                app:shadowRadius="10dp"
+                app:strokeColor="@color/teal_700"
+                app:strokeWidth="1dp" />
+
+            <me.reezy.cosmo.shapeable.ShapeableFrameLayout
+                android:layout_width="80dp"
+                android:layout_height="60dp"
+                android:layout_margin="10dp"
+                android:clickable="true"
+                android:gravity="center"
+                app:arrowAlign="center"
+                app:arrowEdge="bottom"
+                app:arrowOffset="10dp"
+                app:arrowSize="8dp"
+                app:cornerSize="5dp"
+                app:cornerType="rounded"
+                app:shadowColor="#40ffffff"
+                app:shadowRadius="10dp"
+                app:strokeColor="@color/teal_700"
+                app:strokeWidth="1dp" />
+
+            <me.reezy.cosmo.shapeable.ShapeableFrameLayout
+                android:layout_width="80dp"
+                android:layout_height="60dp"
+                android:layout_margin="10dp"
+                android:clickable="true"
+                android:gravity="center"
+                app:arrowAlign="start"
+                app:arrowEdge="left"
+                app:arrowOffset="20dp"
+                app:arrowSize="8dp"
+                app:backgroundTint="@color/teal_200"
+                app:cornerSize="5dp"
+                app:cornerType="cut"
+                app:gradientCenterX="0"
+                app:gradientCenterY="1"
+                app:gradientEndColor="@color/teal_200"
+                app:gradientRadius="40dp"
+                app:gradientStartColor="@color/teal_700"
+                app:gradientType="sweep"
+                app:shadowColor="#40ffffff"
+                app:shadowRadius="10dp"
+                app:strokeColor="@color/teal_700"
+                app:strokeWidth="1dp" />
+
+            <me.reezy.cosmo.shapeable.ShapeableFrameLayout
+                android:layout_width="80dp"
+                android:layout_height="60dp"
+                android:layout_margin="10dp"
+                android:clickable="true"
+                android:gravity="center"
+                app:arrowAlign="end"
+                app:arrowEdge="right"
+                app:arrowOffset="20dp"
+                app:arrowSize="8dp"
+                app:cornerSize="5dp"
+                app:cornerType="concave"
+                app:shadowColor="#40ffffff"
+                app:shadowRadius="10dp"
+                app:strokeColor="@color/teal_700"
+                app:strokeWidth="0dp" />
+
+            <View
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:layout_columnSpan="3"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="10dp"
+                android:layout_marginTop="50dp"
+                android:background="@drawable/shapeable" />
+
+            <View
+                android:id="@+id/shape"
+                android:layout_width="70dp"
+                android:layout_height="50dp"
+                android:layout_columnSpan="3"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="30dp"
+                android:background="#400000cc" />
+
+
+        </GridLayout>
     </LinearLayout>
 </ScrollView>

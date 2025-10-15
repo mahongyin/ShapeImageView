@@ -2,18 +2,14 @@ package com.mhy.shape_imageview
 
 import android.content.Context
 import android.content.res.TypedArray
-import android.graphics.Color
-import android.graphics.Color.red
-import android.graphics.Paint
-import android.graphics.drawable.Drawable
-import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 import android.util.AttributeSet
-import android.util.Half.toFloat
 import android.util.TypedValue
-import android.view.ViewGroup
-import androidx.core.content.ContextCompat
 import com.google.android.material.imageview.ShapeableImageView
-import com.google.android.material.shape.*
+import com.google.android.material.shape.AbsoluteCornerSize
+import com.google.android.material.shape.CornerFamily
+import com.google.android.material.shape.CornerSize
+import com.google.android.material.shape.RelativeCornerSize
+import com.google.android.material.shape.ShapeAppearanceModel
 
 /**
  * Created By Mahongyin
@@ -45,11 +41,20 @@ imageView?.shapeAppearanceModel = ShapeAppearanceModel.builder()
 .setBottomRightCornerSize(AbsoluteCornerSize(30f))
 .build()*/
 
-class ShapeImageView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null) :
-    ShapeableImageView(context, attrs) {
+class ShapeImageView @JvmOverloads constructor(
+    context: Context,
+    attrs: AttributeSet? = null,
+    defStyleAttr: Int = 0
+) :
+    ShapeableImageView(context, attrs, defStyleAttr) {
 
     init {
-        val a = context.obtainStyledAttributes(attrs, R.styleable.ShapeImageView)
+        val a = context.obtainStyledAttributes(
+            attrs,
+            R.styleable.ShapeImageView,
+            defStyleAttr,
+            com.google.android.material.R.style.Widget_MaterialComponents_ShapeableImageView
+        )
         try {
             val shapeType: Int =
                 a.getInt(R.styleable.ShapeImageView_shape_All, CornerFamily.ROUNDED)
@@ -61,23 +66,44 @@ class ShapeImageView @JvmOverloads constructor(context: Context, attrs: Attribut
                 a.getInt(R.styleable.ShapeImageView_shape_BottomRight, shapeType)
             val shapeTypeBottomLeft: Int =
                 a.getInt(R.styleable.ShapeImageView_shape_BottomLeft, shapeType)
-
-            val cornerSize = getCornerSize(a, R.styleable.ShapeImageView_shape_corner_All,
-                AbsoluteCornerSize(0F))
-            val cornerSizeTopLeft =
-                getCornerSize(a, R.styleable.ShapeImageView_shape_corner_TopLeft, cornerSize)
-            val cornerSizeTopRight =
-                getCornerSize(a, R.styleable.ShapeImageView_shape_corner_TopRight, cornerSize)
-            val cornerSizeBottomRight =
-                getCornerSize(a, R.styleable.ShapeImageView_shape_corner_BottomRight, cornerSize)
-            val cornerSizeBottomLeft =
-                getCornerSize(a, R.styleable.ShapeImageView_shape_corner_BottomLeft, cornerSize)
-
-            shapeAppearanceModel = ShapeAppearanceModel.builder()
-                    .setTopLeftCorner(shapeTypeTopLeft, cornerSizeTopLeft)
+            val builder = ShapeAppearanceModel.builder()
+            if (a.hasValue(R.styleable.ShapeImageView_shape_corner_All)) {
+                val cornerSize = getCornerSize(
+                    a, R.styleable.ShapeImageView_shape_corner_All,
+                    AbsoluteCornerSize(0F)
+                )
+                builder.setAllCornerSizes(cornerSize)
+            } else {
+                val cornerSizeTopLeft =
+                    getCornerSize(
+                        a,
+                        R.styleable.ShapeImageView_shape_corner_TopLeft,
+                        AbsoluteCornerSize(0F)
+                    )
+                val cornerSizeTopRight =
+                    getCornerSize(
+                        a,
+                        R.styleable.ShapeImageView_shape_corner_TopRight,
+                        AbsoluteCornerSize(0F)
+                    )
+                val cornerSizeBottomRight =
+                    getCornerSize(
+                        a,
+                        R.styleable.ShapeImageView_shape_corner_BottomRight,
+                        AbsoluteCornerSize(0F)
+                    )
+                val cornerSizeBottomLeft =
+                    getCornerSize(
+                        a,
+                        R.styleable.ShapeImageView_shape_corner_BottomLeft,
+                        AbsoluteCornerSize(0F)
+                    )
+                builder.setTopLeftCorner(shapeTypeTopLeft, cornerSizeTopLeft)
                     .setTopRightCorner(shapeTypeTopRight, cornerSizeTopRight)
                     .setBottomRightCorner(shapeTypeBottomRight, cornerSizeBottomRight)
-                    .setBottomLeftCorner(shapeTypeBottomLeft, cornerSizeBottomLeft).build()
+                    .setBottomLeftCorner(shapeTypeBottomLeft, cornerSizeBottomLeft)
+            }
+            shapeAppearanceModel = builder.build()
         } finally {
             a.recycle()
         }
@@ -88,8 +114,9 @@ class ShapeImageView @JvmOverloads constructor(context: Context, attrs: Attribut
         return if (value.type == TypedValue.TYPE_DIMENSION) {
             //最终我们可能希望将其更改为调用 getDimension()，因为角尺寸支持浮点数。
             AbsoluteCornerSize(
-                TypedValue.complexToDimensionPixelSize(value.data, a.resources.displayMetrics)
-                    .toFloat())
+                TypedValue.complexToDimension(value.data, a.resources.displayMetrics)
+                //complexToDimensionPixelSize(value.data, a.resources.displayMetrics).toFloat()
+            )
         } else if (value.type == TypedValue.TYPE_FRACTION) {
             RelativeCornerSize(value.getFraction(1.0f, 1.0f))
         } else {

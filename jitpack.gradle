@@ -1,0 +1,30 @@
+apply plugin: 'maven-publish'//jitpack
+
+/*****************jitpack***************/
+//打包源码的task
+task androidSourcesJar(type: Jar) {
+    archiveClassifier.set("sources")
+    // 源码路径，包含Java、kotlin代码
+    from android.sourceSets.main.java.srcDirs
+    exclude "**/R.class"
+    exclude "**/BuildConfig.class"
+}
+//jitpack
+afterEvaluate {
+    publishing {
+        publications {
+            register(MavenPublication) {
+                from components.release
+                //这里头是artifacts的配置信息，不填会采用默认的
+                groupId = "com.github.mahongyin"// .${rootProject.projectDir.name}"
+                artifactId = "${rootProject.projectDir.name}"
+                version = VERSION_NAME
+                // 增加上传源码的 task
+                artifact androidSourcesJar
+                // 必须有这个 否则不会上传AAR包  将bundleReleaseAar任务的单个输出文件作为发布的AAR文件。这样，该AAR文件就会成为 MavenPublication 的 artifact 并进行发布
+            }
+        }
+    }
+}
+
+//lib模块目录./gradlew publish

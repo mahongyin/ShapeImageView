@@ -1,9 +1,7 @@
-package com.mhy.shape_imageview;
+package com.mhy.shapeview.drawable;
 
 /**
  * 阴影
- * Created By Mahongyin
- * Date    2022/8/13 14:48
  * setLayerType(LAYER_TYPE_SOFTWARE, null) // 在运行时为单个视图禁用硬件加速
  */
 

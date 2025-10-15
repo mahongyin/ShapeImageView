@@ -21,3 +21,6 @@ dependencyResolutionManagement {
 rootProject.name = "ShapeImageView"
 include ':app'
 include ':shape_imageview'
+include ':shape_textview'
+include ':shapeable'
+include ':shapeview'

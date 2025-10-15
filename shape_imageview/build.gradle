@@ -1,9 +1,10 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
-    id 'maven-publish'//Gradle 7.0 maven-push.gradle
+    //id 'maven-publish'//Gradle 7.0 maven-push.gradle
 }
 android {
+    namespace 'com.mhy.shape_imageview'
     compileSdk 32
     defaultConfig {
         minSdk 21
@@ -31,72 +32,75 @@ android {
 }
 
 dependencies {
-    implementation 'com.google.android.material:material:1.6.1'
+    implementation 'com.google.android.material:material:1.9.0'
 }
 
+apply from: '../upload.gradle'
 
-task generateSourcesJar(type: Jar) {
-    from android.sourceSets.main.java.srcDirs
-    classifier "sources"
-}
-def pushArtiFactory = false
-afterEvaluate {
-    publishing {
-        if (pushArtiFactory) {
-            //发布的 jar 包配置
-            publications {
-                release(MavenPublication) {
-                    groupId = 'com.mhy'
-                    artifactId = 'ShapeImageView'
-                    version = '1.0.0'
-                    // 必须有这个 否则不会上传AAR包
-                    afterEvaluate { artifact(tasks.getByName("bundleReleaseAar")) }
-                    // 多渠道，可以自行指定aar 文件路径
-//                 def projectName = project.getName()
-//                 artifact "build/outputs/aar/${projectName}-release.aar"
-                    // 上传source，这样使用方可以看到方法注释
-                    artifact generateSourcesJar
-                    //依赖关系
-                    pom.withXml {
-                        def dependenciesNode = asNode().appendNode("dependencies")
-                        configurations.implementation.allDependencies.forEach() {
-                            Dependency dependency ->
-                                if (dependency.version != "unspecified" && dependency.name != "unspecified") {
-                                    def dependencyNode = dependenciesNode.appendNode('dependency')
-                                    dependencyNode.appendNode('groupId', dependency.group)
-                                    dependencyNode.appendNode('artifactId', dependency.name)
-                                    dependencyNode.appendNode('version', dependency.version)
-                                }
-                        }
-                    }
-
-                }
-            }
-            //仓库地址配置
-            repositories {
-                maven {
-                    //url = "file:" + new File(project.rootProject.rootDir, "local_test_repo").path
-//                url = "file://d:/hhd"  //url=layout.buildDirectory.dir("repo")
-                    //允许使用 http
-                    allowInsecureProtocol = true
-                    url = "http://tencent.a1000.top:8082/artifactory/local"
-                    credentials {
-                        username = "${MAVEN_USER}"
-                        password = "${MAVEN_PASSWORD}"
-                    }
-                }
-            }
-        } else {
-//            把 compileOptions 节点 里的  VERSION_1_8 修改成 11
-//            提交一次，然后执行git update-index --chmod=+x gradlew   提交至仓库，创建发行版，然后就可以去jitpack发布了
-            publications {
-                release(MavenPublication) {
-                    from components.release
-                    groupId = 'com.gitee.mahongyin'
-                    artifactId = 'ShapeImageView'
-                    version = '1.0.0'
-                }
-            }
-        }
-    }
-}
+//def pushArtiFactory = false
+//
+//task generateSourcesJar(type: Jar) {
+//    from android.sourceSets.main.java.srcDirs
+//    classifier "sources"
+//}
+//
+//afterEvaluate {
+//    publishing {
+//        if (pushArtiFactory) {
+//            //发布的 jar 包配置
+//            publications {
+//                release(MavenPublication) {
+//                    groupId = 'com.mhy'
+//                    artifactId = 'ShapeImageView'
+//                    version = '1.0.0'
+//                    // 必须有这个 否则不会上传AAR包
+//                    afterEvaluate { artifact(tasks.getByName("bundleReleaseAar")) }
+//                    // 多渠道，可以自行指定aar 文件路径
+////                 def projectName = project.getName()
+////                 artifact "build/outputs/aar/${projectName}-release.aar"
+//                    // 上传source，这样使用方可以看到方法注释
+//                    artifact generateSourcesJar
+//                    //依赖关系
+//                    pom.withXml {
+//                        def dependenciesNode = asNode().appendNode("dependencies")
+//                        configurations.implementation.allDependencies.forEach() {
+//                            Dependency dependency ->
+//                                if (dependency.version != "unspecified" && dependency.name != "unspecified") {
+//                                    def dependencyNode = dependenciesNode.appendNode('dependency')
+//                                    dependencyNode.appendNode('groupId', dependency.group)
+//                                    dependencyNode.appendNode('artifactId', dependency.name)
+//                                    dependencyNode.appendNode('version', dependency.version)
+//                                }
+//                        }
+//                    }
+//
+//                }
+//            }
+//            //仓库地址配置
+//            repositories {
+//                maven {
+//                    //url = "file:" + new File(project.rootProject.rootDir, "local_test_repo").path
+////                url = "file://d:/hhd"  //url=layout.buildDirectory.dir("repo")
+//                    //允许使用 http
+//                    allowInsecureProtocol = true
+//                    url = "http://tencent.a1000.top:8082/artifactory/local"
+//                    credentials {
+//                        username = "${MAVEN_USER}"
+//                        password = "${MAVEN_PASSWORD}"
+//                    }
+//                }
+//            }
+//        } else {
+////            把 compileOptions 节点 里的  VERSION_1_8 修改成 11
+////            提交一次，然后执行git update-index --chmod=+x gradlew   提交至仓库，创建发行版，然后就可以去jitpack发布了
+//            publications {
+//                release(MavenPublication) {
+//                    from components.release
+//                    groupId = 'com.gitee.mahongyin'
+//                    artifactId = 'ShapeImageView'
+//                    version = '1.0.0'
+//                }
+//            }
+//        }
+//    }
+//}

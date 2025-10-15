@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="TextAnimatGradientView">
+        <attr name="animatorGradient_startColor" format="color" />
+        <attr name="animatorGradient_endColor" format="color" />
+        <attr name="animatorGradient_centerColor" format="color" />
+        <attr name="animatorGradient_duration" format="integer" />
+        <attr name="animatorGradient_repeatCount" format="integer" />
+        <attr name="animatorGradient_alphaSync" format="boolean" />
+        <!-- 方向：0=左到右，1=右到左 -->
+        <attr name="animatorGradient_direction" format="enum">
+            <enum name="left_to_right" value="0" />
+            <enum name="right_to_left" value="1" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="TextGradientView">
+        <attr name="textGradient_startColor" format="color" />
+        <attr name="textGradient_centerColor" format="color" />
+        <attr name="textGradient_endColor" format="color" />
+        <!-- 渐变方向：vertical、horizontal（默认） -->
+        <attr name="textGradient_orientation" format="enum">
+            <enum name="horizontal" value="0" />
+            <enum name="vertical" value="1" />
+        </attr>
+    </declare-styleable>
+
+    <!--drawableTextView-->
+    <declare-styleable name="DrawableTextView">
+        <attr name="text_drawable_height" format="reference|dimension" />
+        <attr name="text_drawable_width" format="reference|dimension" />
+    </declare-styleable>
+</resources>

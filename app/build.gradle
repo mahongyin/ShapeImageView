@@ -5,7 +5,7 @@ plugins {
 
 android {
     compileSdk 32
-
+    namespace "com.mhy.shapeimageview"
     defaultConfig {
         applicationId "com.mhy.shapeimageview"
         minSdk 21
@@ -38,12 +38,14 @@ android {
 }
 
 dependencies {
-
     implementation 'androidx.core:core-ktx:1.8.0'
     implementation 'androidx.appcompat:appcompat:1.4.2'
-
     implementation 'com.google.android.material:material:1.6.1'
+
 //    implementation 'com.gitee.mahongyin:ShapeImageView:1.0.0'
     implementation project(path: ':shape_imageview')
+    implementation project(path: ':shape_textview')
+    implementation project(path: ':shapeable')
+    implementation project(path: ':shapeview')
 
 }

@@ -1,0 +1,75 @@
+apply plugin: 'com.vanniktech.maven.publish'
+
+mavenPublishing {
+    //  获取项目名
+    def projectName = rootProject.name  //分享git是取的项目名
+    def projectDirName = rootProject.projectDir.name//def projectName =rootProject.rootDir.name//项目文件夹名
+
+    def gitRepo = "github.com/mahongyin"
+    def versionName = VERSION_NAME
+    def groupName = "io.github.mahongyin" //.$projectDirName 自行分辨 用项目名还是目录名
+
+    //  获取当前模块名
+    def moduleName = project.name
+    def moduleDirName = projectDir.name //自行取值 用项目名还是目录名
+
+    coordinates(groupName, moduleDirName, versionName)
+
+    pom {
+        name = moduleDirName
+        description = "A description of what ${projectName} does."
+        inceptionYear = "2025"
+        url = "https://${gitRepo}/${projectName}/"
+        licenses {
+            license {
+                name = "The Apache License, Version 2.0"
+                url = "http://www.apache.org/licenses/LICENSE-2.0.txt"
+                distribution = "http://www.apache.org/licenses/LICENSE-2.0.txt"
+            }
+        }
+        developers {
+            developer {
+                id = gitRepo.replace("github.com/", "")
+                name = gitRepo.replace("github.com/", "")
+                url = "https://${gitRepo}/"
+                email = "mhy.work@qq.com"
+            }
+        }
+        scm {
+            url = "https://${gitRepo}/${projectName}/"
+            connection = "scm:git:git://${gitRepo}/${projectName}.git"
+            developerConnection = "scm:git:ssh://git@${gitRepo}/${projectName}.git"
+        }
+    }
+}
+
+//../gradlew publishToMavenCentral
+// 自动发布
+//../gradlew publishAndReleaseToMavenCentral
+// https://repo1.maven.org/maven2/io/github/1976222027/
+tasks.register("uploadMavenCentral"){
+    group = "publishing"
+    description = "Uploads all archives to the remote Maven repository."
+    exec {
+        commandLine "../gradlew.bat", "publishToMavenCentral"
+        //commandLine "../gradlew", "publishToMavenCentral"
+
+        workingDir projectDir
+        errorOutput = System.err
+        standardOutput = System.out
+        setIgnoreExitValue(true)
+    }
+}
+
+tasks.register("uploadAutoMavenCentral"){
+    group = "publishing"
+    description = "Uploads all archives to the remote Maven repository."
+    exec {
+        commandLine "../gradlew.bat", "publishAndReleaseToMavenCentral"
+        //commandLine "../gradlew", "publishAndReleaseToMavenCentral"
+        workingDir projectDir
+        errorOutput = System.err
+        standardOutput = System.out
+        setIgnoreExitValue(true)
+    }
+}

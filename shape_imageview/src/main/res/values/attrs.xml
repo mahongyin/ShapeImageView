@@ -29,16 +29,80 @@
         <attr name="shape_corner_All" format="dimension|fraction" />
 
     </declare-styleable>
-    <!--drawableTextView-->
-    <declare-styleable name="DrawableTextView">
-        <attr name="leftDrawableWidth" format="dimension" />
-        <attr name="leftDrawableHeight" format="dimension" />
-        <attr name="rightDrawableWidth" format="dimension" />
-        <attr name="rightDrawableHeight" format="dimension" />
-        <attr name="topDrawableWidth" format="dimension" />
-        <attr name="topDrawableHeight" format="dimension" />
-        <attr name="bottomDrawableWidth" format="dimension" />
-        <attr name="bottomDrawableHeight" format="dimension" />
-        <attr name="StrokeWidth" format="float" />
+
+    <!--圆角、圆形图片-->
+    <declare-styleable name="MaterialShapeImageView">
+        <!--是圆角还是切角-->
+        <attr name="shapeImg_Type_TopLeft" format="enum">
+            <enum name="rounded" value="0" />
+            <enum name="cut" value="1" />
+        </attr>
+        <attr name="shapeImg_Type_TopRight" format="enum">
+            <enum name="rounded" value="0" />
+            <enum name="cut" value="1" />
+        </attr>
+        <attr name="shapeImg_Type_BottomRight" format="enum">
+            <enum name="rounded" value="0" />
+            <enum name="cut" value="1" />
+        </attr>
+        <attr name="shapeImg_Type_BottomLeft" format="enum">
+            <enum name="rounded" value="0" />
+            <enum name="cut" value="1" />
+        </attr>
+        <attr name="shapeImg_Type" format="enum">
+            <enum name="rounded" value="0" />
+            <enum name="cut" value="1" />
+        </attr>
+        <!--设置圆角大小-->
+        <attr name="shapeImg_corner_TopLeft" format="dimension|fraction" />
+        <attr name="shapeImg_corner_TopRight" format="dimension|fraction" />
+        <attr name="shapeImg_corner_BottomLeft" format="dimension|fraction" />
+        <attr name="shapeImg_corner_BottomRight" format="dimension|fraction" />
+        <attr name="shapeImg_corner_All" format="dimension|fraction" />
+
+        <!--三角形边缘处理 顶角距离边的长度 负值向外，正值向内-->
+        <attr name="shapeImg_edge_AllTriangle" format="reference|dimension" />
+        <attr name="shapeImg_edge_TopTriangle" format="reference|dimension" />
+        <attr name="shapeImg_edge_LeftTriangle" format="reference|dimension" />
+        <attr name="shapeImg_edge_RightTriangle" format="reference|dimension" />
+        <attr name="shapeImg_edge_BottomTriangle" format="reference|dimension" />
+    </declare-styleable>
+    <!--圆角、圆形text-->
+    <declare-styleable name="MaterialShapeTextView">
+        <attr name="strokeColor"/>
+        <attr name="strokeWidth"/>
+        <!--是圆角还是切角-->
+        <attr name="shapeText_Type_TopLeft" format="enum">
+            <enum name="rounded" value="0" />
+            <enum name="cut" value="1" />
+        </attr>
+        <attr name="shapeText_Type_TopRight" format="enum">
+            <enum name="rounded" value="0" />
+            <enum name="cut" value="1" />
+        </attr>
+        <attr name="shapeText_Type_BottomRight" format="enum">
+            <enum name="rounded" value="0" />
+            <enum name="cut" value="1" />
+        </attr>
+        <attr name="shapeText_Type_BottomLeft" format="enum">
+            <enum name="rounded" value="0" />
+            <enum name="cut" value="1" />
+        </attr>
+        <attr name="shapeText_Type" format="enum">
+            <enum name="rounded" value="0" />
+            <enum name="cut" value="1" />
+        </attr>
+        <!--设置圆角大小-->
+        <attr name="shapeText_corner_TopLeft" format="dimension|fraction" />
+        <attr name="shapeText_corner_TopRight" format="dimension|fraction" />
+        <attr name="shapeText_corner_BottomLeft" format="dimension|fraction" />
+        <attr name="shapeText_corner_BottomRight" format="dimension|fraction" />
+        <attr name="shapeText_corner_All" format="dimension|fraction" />
+        <!--三角形边缘处理 顶角距离边的长度 负值向外，正值向内-->
+        <attr name="shapeText_edge_AllTriangle" format="reference|dimension" />
+        <attr name="shapeText_edge_TopTriangle" format="reference|dimension" />
+        <attr name="shapeText_edge_LeftTriangle" format="reference|dimension" />
+        <attr name="shapeText_edge_RightTriangle" format="reference|dimension" />
+        <attr name="shapeText_edge_BottomTriangle" format="reference|dimension" />
     </declare-styleable>
 </resources>

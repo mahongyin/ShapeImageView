@@ -1,4 +1,4 @@
-package com.mhy.shape_imageview
+package com.mhy.shapeview.material
 
 import com.google.android.material.shape.CornerTreatment
 import com.google.android.material.shape.EdgeTreatment
