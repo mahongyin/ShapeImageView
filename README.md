@@ -8,15 +8,16 @@
 
 ```
 maven { url "https://www.jitpack.io" }
-```
 
-依赖于google的**material**库
-
-```
-implementation 'com.google.android.material:material:1.6.1'
+//依赖于google的**material**库
+implementation 'com.google.android.material:material:1.9.0'
 implementation 'com.gitee.mahongyin:ShapeImageView:1.0.0'
 ```
-
+或
+```
+    implementation 'io.github.mahongyin:shape_imageview:0.0.2' 需要 implementation 'com.google.android.material:material:1.9.0'
+    implementation 'io.github.mahongyin:shape_textview:0.0.2'
+```
 #### 属性  
 
 ```xml
