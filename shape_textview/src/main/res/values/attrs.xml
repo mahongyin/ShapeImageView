@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--文字动态渐变-->
     <declare-styleable name="TextAnimatGradientView">
         <attr name="animatorGradient_startColor" format="color" />
         <attr name="animatorGradient_endColor" format="color" />
@@ -13,7 +14,7 @@
             <enum name="right_to_left" value="1" />
         </attr>
     </declare-styleable>
-
+    <!--文字渐变-->
     <declare-styleable name="TextGradientView">
         <attr name="textGradient_startColor" format="color" />
         <attr name="textGradient_centerColor" format="color" />
@@ -24,10 +25,14 @@
             <enum name="vertical" value="1" />
         </attr>
     </declare-styleable>
-
     <!--drawableTextView-->
     <declare-styleable name="DrawableTextView">
-        <attr name="text_drawable_height" format="reference|dimension" />
-        <attr name="text_drawable_width" format="reference|dimension" />
+        <attr name="text_drawable_height" format="dimension" />
+        <attr name="text_drawable_width" format="dimension" />
+    </declare-styleable>
+    <!--文字描边-->
+    <declare-styleable name="TextStrokeView">
+        <attr name="textStrokeColor" format="color" />
+        <attr name="textStrokeWidth" format="dimension" />
     </declare-styleable>
 </resources>

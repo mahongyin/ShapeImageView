@@ -1,4 +1,4 @@
-package com.mhy.shape_textview.gradient_animat;
+package com.mhy.shape_textview;
 
 import android.animation.ValueAnimator;
 import android.content.Context;
@@ -10,8 +10,6 @@ import android.util.AttributeSet;
 import android.view.animation.LinearInterpolator;
 
 import androidx.appcompat.widget.AppCompatTextView;
-
-import com.mhy.shape_textview.R;
 
 // 说明：实现从左到右文字渐变高亮动画
 // attrs.xml

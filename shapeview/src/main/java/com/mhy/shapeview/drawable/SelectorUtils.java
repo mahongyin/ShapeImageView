@@ -24,6 +24,9 @@ import androidx.annotation.RequiresApi;
 /**
  * Created By Mahongyin
  * Date    2022/11/5 23:29
+ * if (!isClickable()) {
+ *      setClickable(true);
+ * }
  */
 public class SelectorUtils {
     //ShapeDrawable gf=new ShapeDrawable();

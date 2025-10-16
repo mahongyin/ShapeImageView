@@ -61,11 +61,11 @@
         <attr name="shapeImg_corner_All" format="dimension|fraction" />
 
         <!--三角形边缘处理 顶角距离边的长度 负值向外，正值向内-->
-        <attr name="shapeImg_edge_AllTriangle" format="reference|dimension" />
-        <attr name="shapeImg_edge_TopTriangle" format="reference|dimension" />
-        <attr name="shapeImg_edge_LeftTriangle" format="reference|dimension" />
-        <attr name="shapeImg_edge_RightTriangle" format="reference|dimension" />
-        <attr name="shapeImg_edge_BottomTriangle" format="reference|dimension" />
+        <attr name="shapeImg_edge_AllTriangle" format="dimension" />
+        <attr name="shapeImg_edge_TopTriangle" format="dimension" />
+        <attr name="shapeImg_edge_LeftTriangle" format="dimension" />
+        <attr name="shapeImg_edge_RightTriangle" format="dimension" />
+        <attr name="shapeImg_edge_BottomTriangle" format="dimension" />
     </declare-styleable>
     <!--圆角、圆形text-->
     <declare-styleable name="MaterialShapeTextView">
@@ -99,10 +99,10 @@
         <attr name="shapeText_corner_BottomRight" format="dimension|fraction" />
         <attr name="shapeText_corner_All" format="dimension|fraction" />
         <!--三角形边缘处理 顶角距离边的长度 负值向外，正值向内-->
-        <attr name="shapeText_edge_AllTriangle" format="reference|dimension" />
-        <attr name="shapeText_edge_TopTriangle" format="reference|dimension" />
-        <attr name="shapeText_edge_LeftTriangle" format="reference|dimension" />
-        <attr name="shapeText_edge_RightTriangle" format="reference|dimension" />
-        <attr name="shapeText_edge_BottomTriangle" format="reference|dimension" />
+        <attr name="shapeText_edge_AllTriangle" format="dimension" />
+        <attr name="shapeText_edge_TopTriangle" format="dimension" />
+        <attr name="shapeText_edge_LeftTriangle" format="dimension" />
+        <attr name="shapeText_edge_RightTriangle" format="dimension" />
+        <attr name="shapeText_edge_BottomTriangle" format="dimension" />
     </declare-styleable>
 </resources>

@@ -18,19 +18,40 @@
         android:gravity="center_horizontal"
         android:orientation="vertical">
 
+        <com.mhy.text_stroke.text.TextStrokeView
+            android:id="@+id/sub_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="视频名"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:textStrokeColor="@color/black"
+            app:textStrokeWidth="2dp" />
+
+        <com.mhy.text_stroke.TextStrokeView
+            android:layout_width="111dp"
+            android:layout_height="36dp"
+            android:gravity="center"
+            android:text="描边文"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:textStrokeColor="@color/black"
+            app:textStrokeWidth="2dp" />
+
         <com.mhy.shape_textview.DrawableTextView
+            android:id="@+id/drawable_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:drawableRight="@mipmap/ic_launcher"
             android:drawableLeft="@mipmap/ic_launcher"
+            android:drawableRight="@mipmap/ic_launcher"
             android:drawablePadding="4dp"
-            android:gravity="center"
-            android:text="图片文字图片片文字图片文字图片文字图片文字图片文字图片文字图片文字图片文字图片文字图片文字"
+            android:gravity="center_vertical"
+            android:text="图片文字图片片文字图片文字图片文字图图片文字图片文字图片文字图片文字图片文字"
             android:textColor="#00ffff"
             android:textSize="18sp"
-            app:text_drawable_height="15dp"
-            app:text_drawable_width="15dp" />
+            app:text_drawable_height="40dp"
+            app:text_drawable_width="40dp" />
 
         <com.mhy.shape_textview.gradient_span.TextGradientView
             android:id="@+id/text"
@@ -44,7 +65,7 @@
             app:textGradient_endColor="@color/white"
             app:textGradient_startColor="@color/black" />
 
-        <com.mhy.shape_textview.gradient_animat.TextAnimatGradientView
+        <com.mhy.shape_textview.TextAnimatGradientView
             android:id="@+id/tv_gradient"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -53,10 +74,10 @@
             android:gravity="center"
             android:text="渐变文字Animat"
             android:textSize="18sp"
-            app:animatorGradient_endColor="#55eeaa"
-            app:animatorGradient_duration="4000"
             app:animatorGradient_centerColor="#ee0000"
             app:animatorGradient_direction="left_to_right"
+            app:animatorGradient_duration="4000"
+            app:animatorGradient_endColor="#55eeaa"
             app:animatorGradient_startColor="#55eeaa" />
 
         <com.mhy.shape_textview.TextGradientView
